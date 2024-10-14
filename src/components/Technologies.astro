@@ -1,0 +1,25 @@
+---
+import Html from "../icons/technologies/Html.astro"
+import Css from "../icons/technologies/Css.astro"
+import Javascript from "../icons/technologies/Javascript.astro"
+import Typescript from "../icons/technologies/Typescript.astro"
+import Python from "../icons/technologies/Python.astro"
+import Flask from "../icons/technologies/Flask.astro"
+import Django from "../icons/technologies/Django.astro"
+import AstroIcon from "../icons/technologies/AstroIcon.astro"
+import Tailwind from "../icons/technologies/Tailwind.astro"
+
+
+
+const technologies = [Html, Css, Javascript, Typescript, AstroIcon, Python, Flask, Django,Tailwind]
+---
+
+<div class="grid grid-cols-2 md:grid-cols-3 gap-y-8 ">
+    {
+        technologies.map((TechComponent) => (
+            <div class="mx-auto">
+                <TechComponent width="80" height="80"/>
+            </div>
+        ))
+    }
+</div>

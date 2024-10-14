@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content";
+import TagPill from './TagPill.astro'
+import ButtonView from "./ButtonView.astro"
+import GitHubAlter from "../icons/social/GitHubAlter.astro"
+import Link from "../icons/social/Link.astro"
+import Mail from "../icons/social/Mail.astro"
+
+interface Project {
+    data: {
+        title: string
+        info: string
+        tags: string[]
+        image: {src: string, alt:string}
+        github: string
+        demo: string
+    }
+}
+
+
+const allProjects = await getCollection('projects')
+---
+
+<div>
+    {
+    allProjects.map((project: Project) => (
+        <div>
+            <div class="rounded-2xl">
+                <img class="rounded-2xl" src={project.data.image.src} alt={project.data.image.alt} />
+            </div>
+            <div class="mt-6">
+                <h3 class="text-2xl font-medium">{project.data.title}</h3>
+                <div class=" flex flex-row flex-wrap gap-2 my-3">
+                {
+                    project.data.tags.map((tag) => (
+                        <TagPill>
+                            <span>i</span>
+                            {tag}
+                        </TagPill>
+                    ))
+                }
+                </div>
+                <p class="mb-4 text-pretty">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, sit temporibus expedita nostrum autem omnis cum inventore consectetur voluptate consequatur beatae facere rerum, quisquam assumenda, molestiae neque non dicta eaque.</p>
+                <div class="flex mb-4">
+                    <ButtonView href="https://github.com/Garogoz">
+                        <GitHubAlter  />
+                        Code
+                    </ButtonView>
+                    <ButtonView href="https://github.com/Garogoz">
+                        <Link />
+                        Demo
+                    </ButtonView>
+                </div>
+            </div>
+        </div>
+    ))
+}
+</div>
