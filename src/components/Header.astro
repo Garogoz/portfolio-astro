@@ -3,11 +3,13 @@ import Sun from '../icons/Sun.astro'
 ---
 
 <header class="fixed top-0 z-20 w-full flex justify-center items-center h-12">
-    <nav class="flex px-4 py-1 rounded-full gap-x-3 align-middle text-sm sm:text-md md:text-lg font-medium">
-        <a class="self-center" href="#projects">Projects</a>
-        <a class="self-center" href="#technologies">Technologies</a>
-        <a class="self-center" href="#courses">Courses</a>
-        <a class="self-center" href="#aboutme">About me</a>
+    <nav class="flex rounded-full px-3 py-1 transition duration-300 " id="navbar">
+        <ul class="flex px-4 py-1 rounded-full gap-x-3 align-middle text-sm sm:text-md md:text-lg font-medium">
+            <li class="cursor-pointer   hover:text-red-500 dark:hover:text-white dark:text-colorfg"><a class="" href="#top">Top</a></li>
+            <li class="cursor-pointer   hover:text-red-500 dark:hover:text-white dark:text-colorfg"><a href="#technologies">technologies</a></li>
+            <li class="cursor-pointer   hover:text-red-500 dark:hover:text-white dark:text-colorfg"><a href="#projects">projects</a></li>
+            <li class="cursor-pointer   hover:text-red-500 dark:hover:text-white dark:text-colorfg"><a href="#aboutme">about me</a></li>
+        </ul>
         <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
             
@@ -16,3 +18,47 @@ import Sun from '../icons/Sun.astro'
 
     </nav>
 </header>
+
+<script>
+// scroll
+
+
+const nav = document.getElementById('navbar')
+const navItems = nav?.querySelectorAll('ul > li')
+
+const navScrollStyles = ['bg-slate-900', 'text-white']
+
+window.addEventListener('scroll', (e) => {
+    if (window.scrollY > 0) {
+        navScrollStyles.forEach((item) => {
+            nav?.classList.add(item)
+            console.log(`Added class: ${item}`);
+        })
+    } else {
+        navScrollStyles.forEach((item) => {
+            nav?.classList.remove(item)
+            console.log(`removed class: ${item}`);
+        })
+        
+    }
+})
+
+
+navItems?.forEach((item) => {
+
+    item.addEventListener('click', (e) => {
+        e.preventDefault()
+        const anchor = item.querySelector('a')
+        
+        const targetId = anchor?.href.split('#')[1]
+
+        const targetSection = document.getElementById(targetId ?? 'top')
+
+        targetSection?.scrollIntoView()
+
+        
+
+        
+    })
+})
+</script>

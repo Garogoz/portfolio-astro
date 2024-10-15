@@ -5,6 +5,16 @@ import ButtonView from "./ButtonView.astro"
 import GitHubAlter from "../icons/social/GitHubAlter.astro"
 import Link from "../icons/social/Link.astro"
 import Mail from "../icons/social/Mail.astro"
+import AstroIcon from "../icons/technologies/AstroIcon.astro";
+import Tailwind from "../icons/technologies/Tailwind.astro";
+import Css from "../icons/technologies/Css.astro";
+import Django from "../icons/technologies/Django.astro";
+import Flask from "../icons/technologies/Flask.astro";
+import Html from "../icons/technologies/Html.astro";
+import Javascript from "../icons/technologies/Javascript.astro";
+import Python from "../icons/technologies/Python.astro";
+import React from "../icons/technologies/React.astro";
+import Typescript from "../icons/technologies/Typescript.astro";
 
 interface Project {
     data: {
@@ -16,31 +26,93 @@ interface Project {
         demo: string
     }
 }
+const TECH_TAGS = {
+    ASTRO: {
+        icon: AstroIcon,
+        class: 'bg-black text-white ',
+        name: 'Astro'
+    },
+    CSS: {
+        icon: Css,
+        class: 'bg-blue-400 text-black',
+        name: 'CSS'
+    },
+    DJANGO: {
+        icon: Django,
+        class: 'bg-green-900 text-white',
+        name: 'Django'
+    },
+    FLASK: {
+        icon: Flask,
+        class: 'bg-indigo-500 text-white',
+        name: 'Flask'
+    },
+    HTML: {
+        icon: Html,
+        class: 'bg-orange-400 text-black',
+        name: 'HTML'
+    },
+    JAVASCRIPT: {
+        icon: Javascript,
+        class: 'bg-white text-black',
+        name: 'JavaScript'
+    },
+    PYTHON: {
+        icon: Python,
+        class: 'bg-green-300 text-black',
+        name: 'Python'
+    },
+    REACT: {
+        icon: React,
+        class: 'bg-indigo-950 text-white',
+        name: 'React'
+    },
+    TAILWIND: {
+        icon: Tailwind,
+        class: 'bg-cyan-900 text-white',
+        name: 'TailwindCSS'
+    },
+    TYPESCRIPT: {
+        icon: Typescript,
+        class: 'bg-cyan-300 text-black',
+        name: 'Typescript'
+    }
+};
+
 
 
 const allProjects = await getCollection('projects')
 ---
 
-<div>
+<div class="flex flex-col gap-y-8">
     {
     allProjects.map((project: Project) => (
-        <div>
-            <div class="rounded-2xl">
+        <div class="flex flex-col md:flex-row gap-8 lg:gap-12">
+            <div class="rounded-2xl md:max-w-[250px] lg:max-w-full">
                 <img class="rounded-2xl" src={project.data.image.src} alt={project.data.image.alt} />
             </div>
-            <div class="mt-6">
-                <h3 class="text-2xl font-medium">{project.data.title}</h3>
+            <div class=" ">
+                <h3 class="text-2xl font-medium text-red-500 dark:text-colorYellow">{project.data.title}</h3>
                 <div class=" flex flex-row flex-wrap gap-2 my-3">
                 {
-                    project.data.tags.map((tag) => (
-                        <TagPill>
-                            <span>i</span>
-                            {tag}
-                        </TagPill>
-                    ))
+                    project.data.tags.map((tag) => {
+                        const tagInfo = TECH_TAGS[tag as keyof typeof TECH_TAGS] ?? {}
+                        return (
+                            <TagPill customClass={tagInfo.class || ''}>
+                                {
+                                    tagInfo.icon && (
+                                        <tagInfo.icon width="15"/>
+                                    )
+                                }
+                                {tagInfo.name ?? 'None'}
+                            </TagPill>
+                        )
+                        
+                    })
+                        
                 }
                 </div>
-                <p class="mb-4 text-pretty">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, sit temporibus expedita nostrum autem omnis cum inventore consectetur voluptate consequatur beatae facere rerum, quisquam assumenda, molestiae neque non dicta eaque.</p>
+                <p class="mb-4 text-pretty text-black/60 dark:text-white/60">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, sit temporibus expedita nostrum autem omnis cum inventore consectetur voluptate consequatur beatae facere rerum, quisquam assumenda, molestiae neque non dicta eaque.</p>
                 <div class="flex mb-4">
                     <ButtonView href="https://github.com/Garogoz">
                         <GitHubAlter  />

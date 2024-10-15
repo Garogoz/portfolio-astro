@@ -1,9 +1,11 @@
 ---
-title: Portfolio - Wilmer's portfolio
-info: Lorajksn ajsd jdhnai saidjas ijdas ijasdias.
+title: Finaffy - Finance tracker
+info: Herramienta para gestionar finanzas personales 
 tags:
   - REACT
   - TAILWIND
+  - DJANGO
+
 image:  
     src: ../wilmer.png
     alt: Pagina de wilmer
