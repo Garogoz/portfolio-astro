@@ -4,7 +4,6 @@ import TagPill from './TagPill.astro'
 import ButtonView from "./ButtonView.astro"
 import GitHubAlter from "../icons/social/GitHubAlter.astro"
 import Link from "../icons/social/Link.astro"
-import Mail from "../icons/social/Mail.astro"
 import AstroIcon from "../icons/technologies/AstroIcon.astro";
 import Tailwind from "../icons/technologies/Tailwind.astro";
 import Css from "../icons/technologies/Css.astro";
@@ -15,6 +14,7 @@ import Javascript from "../icons/technologies/Javascript.astro";
 import Python from "../icons/technologies/Python.astro";
 import React from "../icons/technologies/React.astro";
 import Typescript from "../icons/technologies/Typescript.astro";
+import Graphql from "../icons/technologies/Graphql.astro";
 
 interface Project {
     data: {
@@ -44,8 +44,13 @@ const TECH_TAGS = {
     },
     FLASK: {
         icon: Flask,
-        class: 'bg-indigo-500 text-white',
+        class: 'bg-lime-500 text-black dark:text-white dark:bg-lime-800',
         name: 'Flask'
+    },
+    GRAPHQL: {
+        icon: Graphql,
+        class: 'bg-black text-white dark:text-white dark:bg-black',
+        name: 'Graphql'
     },
     HTML: {
         icon: Html,

@@ -6,6 +6,7 @@ tags:
   - CSS
   - JAVASCRIPT
   - FLASK
+  - GRAPHQL
 image:  
     src: ../wilmer.png
     alt: Pagina de wilmer
