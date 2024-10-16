@@ -8,7 +8,7 @@ tags:
   - FLASK
   - GRAPHQL
 image:  
-    src: ../public/project-pics/anime-5.webp
+    src: ../project-pics/anime-1.webp
     alt: Anime Website picture
 github: https://github.com/Garogoz/anime-times
 demo: https://garogoz.pythonanywhere.com/
