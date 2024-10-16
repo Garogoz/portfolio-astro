@@ -5,9 +5,8 @@ tags:
   - REACT
   - TAILWIND
   - DJANGO
-
 image:  
-    src: ../wilmer.png
+    src: ../project-pics/finaffy-1.png
     alt: Pagina de wilmer
 github: https://github.com/pheralb/svgl
 demo: https://svgl.app/

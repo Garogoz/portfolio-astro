@@ -15,6 +15,7 @@ import Python from "../icons/technologies/Python.astro";
 import React from "../icons/technologies/React.astro";
 import Typescript from "../icons/technologies/Typescript.astro";
 import Graphql from "../icons/technologies/Graphql.astro";
+import Carousel from "./Carousel.astro";
 
 interface Project {
     data: {
@@ -84,17 +85,28 @@ const TECH_TAGS = {
     }
 };
 
+const images = [
+  { src: '../project-pics/anime-1.webp', alt: 'Anime Image 1' },
+  { src: '../project-pics/anime-2.webp', alt: 'Anime Image 2' },
+  { src: '../project-pics/anime-3.webp', alt: 'Anime Image 3' },
+  { src: '../project-pics/anime-4.webp', alt: 'Anime Image 4' }
+];
 
 
 const allProjects = await getCollection('projects')
+
+
 ---
 
 <div class="flex flex-col gap-y-8">
     {
     allProjects.map((project: Project) => (
-        <div class="flex flex-col md:flex-row gap-8 lg:gap-12">
-            <div class="rounded-2xl md:max-w-[250px] lg:max-w-full">
-                <img class="rounded-2xl" src={project.data.image.src} alt={project.data.image.alt} />
+        <div class=" custom-hover flex flex-col md:flex-row gap-8 lg:gap-12">
+            <div class=" md:max-w-[250px] lg:max-w-full overflow-hidden">
+                
+                
+                <img class="transition duration-700 " src={project.data.image.src} alt={project.data.image.alt} /> 
+                    
             </div>
             <div class=" ">
                 <h3 class="text-2xl font-medium text-red-500 dark:text-colorYellow">{project.data.title}</h3>
@@ -119,11 +131,11 @@ const allProjects = await getCollection('projects')
                 </div>
                 <p class="mb-4 text-pretty text-black/60 dark:text-white/60">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, sit temporibus expedita nostrum autem omnis cum inventore consectetur voluptate consequatur beatae facere rerum, quisquam assumenda, molestiae neque non dicta eaque.</p>
                 <div class="flex mb-4">
-                    <ButtonView href="https://github.com/Garogoz">
+                    <ButtonView href={project.data.github}>
                         <GitHubAlter  />
                         Code
                     </ButtonView>
-                    <ButtonView href="https://github.com/Garogoz">
+                    <ButtonView href={project.data.demo}>
                         <Link />
                         Demo
                     </ButtonView>
@@ -133,3 +145,17 @@ const allProjects = await getCollection('projects')
     ))
 }
 </div>
+
+<script>
+    const divs = document.querySelectorAll('.custom-hover')
+    divs.forEach((div) => {
+        div.addEventListener('mouseover', () => {
+            const img = div.querySelector('img')
+            img?.classList.add('scale-105')
+        })
+        div.addEventListener('mouseout', () => {
+            const img = div.querySelector('img')
+            img?.classList.remove('scale-105')
+        })
+    })
+</script>

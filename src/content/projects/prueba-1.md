@@ -8,10 +8,10 @@ tags:
   - FLASK
   - GRAPHQL
 image:  
-    src: ../wilmer.png
-    alt: Pagina de wilmer
-github: https://github.com/pheralb/svgl
-demo: https://svgl.app/
+    src: ../public/project-pics/anime-5.png
+    alt: Anime Website picture
+github: https://github.com/Garogoz/anime-times
+demo: https://garogoz.pythonanywhere.com/
 
 ---
 

@@ -1,12 +1,14 @@
 ---
-title: Portfolio - Wilmer's portfolio
+title: Social Network - Web to post content and follow others
 info: Lorajksn ajsd jdhnai saidjas ijdas ijasdias.
 tags:
-  - REACT
-  - TAILWIND
+  - HTML
+  - CSS
+  - JAVASCRIPT
+  - DJANGO
 image:  
-    src: ../wilmer.png
-    alt: Pagina de wilmer
+    src: ../project-pics/network-1.png
+    alt: Network website image
 github: https://github.com/pheralb/svgl
 demo: https://svgl.app/
 
