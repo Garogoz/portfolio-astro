@@ -6,8 +6,8 @@ tags:
   - TAILWIND
   - DJANGO
 image:  
-    src: ../project-pics/finaffy-1.png
-    alt: Pagina de wilmer
+    src: ../project-pics/finaffy-1.webp
+    alt: Finance tracker website image
 github: https://github.com/pheralb/svgl
 demo: https://svgl.app/
 

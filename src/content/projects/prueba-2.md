@@ -7,7 +7,7 @@ tags:
   - JAVASCRIPT
   - DJANGO
 image:  
-    src: ../project-pics/network-1.png
+    src: ../project-pics/network-1.webp
     alt: Network website image
 github: https://github.com/pheralb/svgl
 demo: https://svgl.app/
